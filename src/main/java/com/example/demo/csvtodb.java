@@ -21,7 +21,7 @@ public class csvtodb
 
         try {
 
-            CSVReader reader = new CSVReader(new FileReader("C:\\Users\\athul\\IdeaProjects\\final_assignment\\src\\public\\customers.csv"));
+            CSVReader reader = new CSVReader(new FileReader("C:\\Users\\athul\\documents\\assignment\\customers.csv"));
             reader.readNext();
 
             Connection connection = DriverManager.getConnection(jdbcURL,"postgres","athul");
@@ -54,8 +54,8 @@ public class csvtodb
                 statement_2.setString(7,customer_id);
                 String full_name = line[2]+" "+line[3];
                 statement_2.setString(1,full_name);
-                String office_Loc = "Bangalore";
-                statement_2.setString(2,office_Loc);
+                String off_Loc = "Bangalore";
+                statement_2.setString(2,off_Loc);
                 String subscription_date = line[10];
                 statement_2.setString(3,subscription_date);
                 String website = line[11];
