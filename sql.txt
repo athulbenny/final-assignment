@@ -1,0 +1,11 @@
+CREATE TABLE customer(id integer primary key,customer_id varchar(50),first_name varchar(50),last_name varchar(50),company varchar(50), city varchar(50),country varchar(50),phone1 varchar(50), phone2 varchar(50),email varchar(50), subscription_date varchar(50), website varchar(50)); 
+
+CREATE TABLE customer_info(customer_id varchar(50) primary key,f_name varchar(50),l_name varchar(50), city varchar(50),country varchar(50),personal_phnum varchar(50),personal_email varchar(50));
+
+CREATE TABLE customer_work_info(customer_id varchar(50) primary key,full_name varchar(50), off_loc varchar(50), subscription_date varchar(50), website varchar(50),work_phnum varchar(50), work_email varchar(50));
+
+insert into customer_info select customer_id,UPPER(first_name),UPPER(last_name),city,country,phone1,email from customer; 
+
+insert into customer_work_info select customer_id,concat(first_name,' ',last_name),city,subscription_date,phone2,concat(LOWER(first_name),'_',LOWER(last_name),'@sample.com') from customer; 
+
+select ci.customer_id,cw.full_name,ci.city,ci.personal_phnum,ci.personal_email,subscription_date,current_date::date-cw.subscription_date::date,cw.work_phnum,cw.work_email from customer_work_info as cw, customer_info as ci where cw.customer_id=ci.customer_id and ci.f_name='TOM';
