@@ -1,4 +1,4 @@
-
+package com.example.demo;
 //package org.assignment;
 
 import java.io.BufferedWriter;
@@ -12,7 +12,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 
-public class App
+public class dbtocsv
 {
 	public static void main( String[] args )
 	{
